@@ -3,7 +3,7 @@
  * @package Use Client's Time Zone
  * @version 1.0
  */
-/*
+
 /*
 Plugin Name: Use Client's Time Zone
 Plugin URI:
