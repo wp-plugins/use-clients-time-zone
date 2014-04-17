@@ -61,7 +61,7 @@ class UseClientsTimezone {
 	}
 
 	public function setTimezone () {
-		// Get time at user's IP, if possible, otherwise use US Central Time
+		// Get time at user's IP, if possible, otherwise use the fallback time zone (GMT, if no time zone is specified in the dashboard settings).
 		$ip		= $_SERVER['REMOTE_ADDR'];
 		$json	= file_get_contents("http://api.easyjquery.com/ips/?ip=".$ip."&full=true");
 		if (false === $json) {
