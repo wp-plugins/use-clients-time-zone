@@ -1,15 +1,17 @@
 <?php
 
 class UseClientsTimezone {
-	/* Sets the default time zone for PHP scripts to that of the IP number of the client.
+	/* Sets the default time zone for PHP scripts to that of the client.
+	 * A cookie containing the client's time zone is set on the client the first time that client accesses the site and the page is reloaded.
+	 * This cookie is then read by the PHP of this script and used to set the default time zone for PHP scripts.
 	 */
 
-	protected $document_root		= '';
+	protected $doc_root				= '';
 	protected $fallback_timezone	= 'GMT';
 	protected $plugin_path			= '';
 
 	public function __construct () {
-		$this->document_root		= 'http://'.$_SERVER['SERVER_NAME'];
+		$this->doc_root				= 'http://'.$_SERVER['SERVER_NAME'];
 		$this->plugin_path			= plugins_url('/use-clients-timezone/');
 		$this->fallback_timezone	= get_option('use_clients_timezone_fallback_timezone');
 		if (!$this->fallback_timezone) {
@@ -20,6 +22,15 @@ class UseClientsTimezone {
 		add_action('admin_menu', array(&$this, 'admin_add_page'));
 	}
 
+	public function enqueueScripts () {
+		wp_register_script('jstimezonedetect', 'https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js'); // Automatic Timezone Detection Using JavaScript: http://pellepim.bitbucket.org/jstz/
+		wp_register_script('jquery-cookie', plugins_url('js/jquery-cookie-1.4.1/jquery.cookie.js', __FILE__), array('jquery')); // jquery-cookie https://github.com/carhartl/jquery-cookie/tree/v1.4.1
+		wp_register_script('set_uct_timezone_cookie', plugins_url('js/set_uct_timezone_cookie.js', __FILE__), array('jquery', 'jquery-cookie', 'jstimezonedetect'));
+		wp_enqueue_script('jstimezonedetect');
+		wp_enqueue_script('jquery-cookie');
+		wp_enqueue_script('set_uct_timezone_cookie');
+	} 
+	
 	public function initialize_admin () {
 		if (function_exists('register_setting')) {
 			$page_for_settings		= 'use_clients_timezone_plugin';
@@ -61,19 +72,13 @@ class UseClientsTimezone {
 	}
 
 	public function setTimezone () {
-		// Get time at user's IP, if possible, otherwise use the fallback time zone (GMT, if no time zone is specified in the dashboard settings).
-		$ip		= $_SERVER['REMOTE_ADDR'];
-		$json	= file_get_contents("http://api.easyjquery.com/ips/?ip=".$ip."&full=true");
-		if (false === $json) {
-			date_default_timezone_set($this->fallback_timezone);
-		} else {
-			$json_decoded	= json_decode($json, true);
-			$time_zone		= $json_decoded['localTimeZone'];
-			if ($time_zone) {
-				date_default_timezone_set($time_zone);
-			} else {
+		$uct_cookie_name = 'wordpress_useclientstimezone_timezone';
+		if(isset($_COOKIE[$uct_cookie_name])) {
+			if (!date_default_timezone_set($_COOKIE[$uct_cookie_name])) {
 				date_default_timezone_set($this->fallback_timezone);
 			}
+		} else {
+			date_default_timezone_set($this->fallback_timezone);
 		}
 	}
 
