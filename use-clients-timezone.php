@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Use Client's Time Zone
- * @version 1.1
+ * @version 1.1.1
  */
 
 /*
