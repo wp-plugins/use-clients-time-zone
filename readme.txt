@@ -38,13 +38,14 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for mor
 
 http://prayercentral.net/devotionals/a-word-for-today/.
 
-http://church-savior.com/todaysbiblereadings/.
-
 == Screenshots ==
 
 1. Settings page.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
 
 = 1.1.1 =
 Glitch fix: JavaScript directory and files had not been properly SVN-added. This update is to correct that.
@@ -56,6 +57,9 @@ Method for obtaining client time zone changed from attempting to retrieve time z
 Original release.
 
 == Changelog ==
+
+= 1.1.2 =
+Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
 
 = 1.1.1 =
 Glitch fix: JavaScript directory and files had not been properly SVN-added. This update is to correct that.
