@@ -44,6 +44,9 @@ http://prayercentral.net/devotionals/a-word-for-today/.
 
 == Upgrade Notice ==
 
+= 1.1.3 =
+Changed cookie path to be site-wide.
+
 = 1.1.2 =
 Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
 
@@ -58,11 +61,11 @@ Original release.
 
 == Changelog ==
 
+= 1.1.3 =
+Changed cookie path to be site-wide.
+
 = 1.1.2 =
 Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
-
-= 1.1.1 =
-Glitch fix: JavaScript directory and files had not been properly SVN-added. This update is to correct that.
 
 = 1.1 =
 Method for obtaining client time zone changed from attempting to retrieve time zone of IP to setting a cookie containing the clients time zone, then reading that cookie.
