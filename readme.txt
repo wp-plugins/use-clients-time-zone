@@ -12,7 +12,7 @@ Sets the default time zone for PHP scripts to that of the client.
 
 == Description ==
 
-This plugin retrieves the time zone of the client using "Automatic Timezone Detection Using JavaScript" (http://pellepim.bitbucket.org/jstz/) the first time that a client accesses the site, sets a cookie containing the client's time zone on the client, and reloads the page. This cookie is then read by PHP and the date_default_timezone_set() function is used to set the default time zone for PHP scripts. Since it runs just after all of the plugins are loaded, it changes the time zone for all of the PHP that follows. It is useful in cases where one wants users to see certain posts on certain days. E.g., if the post slug contains the day number, like "xyz-daynr," then the post can be specified by "$slug = 'xyz'.date(j);" in a theme template. The cookie does not expire for ten years, but is reset if the user changes time zones. So, unless the user deletes cookies or moves the page reload only occurs once every ten years.
+This plugin retrieves the time zone of the client using "Automatic Timezone Detection Using JavaScript" (http://pellepim.bitbucket.org/jstz/) the first time that a client accesses the site, sets a cookie containing the client's time zone on the client, and reloads the page. This cookie is then read by PHP and the date_default_timezone_set() function (requires PHP 5 >= 5.1.0) is used to set the default time zone for PHP scripts. Since it runs just after all of the plugins are loaded, it changes the time zone for all of the PHP that follows. It is useful in cases where one wants users to see certain posts on certain days. E.g., if the post slug contains the day number, like "xyz-daynr," then the post can be specified by "$slug = 'xyz'.date(j);" in a theme template. The cookie does not expire for ten years, but is reset if the user changes time zones. So, unless the user deletes cookies or moves the page reload only occurs once every ten years.
 
 Copyright 2012-2015 M.D. Green, SaeSolved:: LLC
 
@@ -38,13 +38,20 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for mor
 
 http://prayercentral.net/devotionals/a-word-for-today/.
 
-http://church-savior.com/todaysbiblereadings/.
-
 == Screenshots ==
 
 1. Settings page.
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+Changed cookie path to be site-wide.
+
+= 1.1.2 =
+Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
+
+= 1.1.1 =
+Glitch fix: JavaScript directory and files had not been properly SVN-added. This update is to correct that.
 
 = 1.1 =
 Method for obtaining client time zone changed from attempting to retrieve time zone of IP to setting a cookie containing the clients time zone, then reading that cookie.
@@ -53,6 +60,12 @@ Method for obtaining client time zone changed from attempting to retrieve time z
 Original release.
 
 == Changelog ==
+
+= 1.1.3 =
+Changed cookie path to be site-wide.
+
+= 1.1.2 =
+Changed JavaScript so that the page is not reloaded if cookies are not enabled on the client.
 
 = 1.1 =
 Method for obtaining client time zone changed from attempting to retrieve time zone of IP to setting a cookie containing the clients time zone, then reading that cookie.
