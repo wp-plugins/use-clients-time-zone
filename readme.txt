@@ -38,6 +38,10 @@ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for mor
 
 http://prayercentral.net/devotionals/a-word-for-today/.
 
+The information (in this case a prayer) will be for the day of the client, not the day of the server (which it would be without the plugin).
+
+You can test by changing the time on your computer to be in a time zone which is in a different day. E.g., if you live in New York, change the time zone on your computer to that of Sydney. You should see the information (in the case of the example) for the next day. (Check a site like http://www.timeanddate.com/ to be sure to get a time zone which is in a different day than the one normally set on your computer.)
+
 == Screenshots ==
 
 1. Settings page.
