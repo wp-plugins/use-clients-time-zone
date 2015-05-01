@@ -3,7 +3,7 @@ Contributors: drmikegreen
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XR9J849YUCJ3A
 Tags: Time zone, default time zone, client's time zone,
 Requires at least: 1.5
-Tested up to: 4.1
+Tested up to: 4.2.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
