@@ -48,6 +48,8 @@ You can test this by changing the time on your computer to be in a time zone whi
 	<https://vip.wordpress.com/documentation/vip-development-tips-tricks/use-current_time-not-date_default_timezone_set/>
 	<https://weston.ruter.net/2013/04/02/do-not-change-the-default-timezone-from-utc-in-wordpress/>
 
+The author has not observed any problems on the sites on which this plugin has been tested. Based on the foregoing post, however,it would be wise to check that no date-related operations are going awry after activating this plugin -- even though no problems have been observed with the sites tested.
+
 1. To do: Develop, if possible, a way to effect the use of methods, other than using the date_default_timezone_set() function, to produce the same functionality the plugin currently has.
 
 == Screenshots ==
