@@ -3,7 +3,7 @@ Contributors: drmikegreen
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XR9J849YUCJ3A
 Tags: Time zone, default time zone, client's time zone,
 Requires at least: 1.5
-Tested up to: 4.2.1
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -42,11 +42,22 @@ The information on the site (in the example "A Word for Today") will be for the 
 
 You can test this by changing the time on your computer to be in a time zone which is in a different day. E.g., if you live in New York, change the time zone on your computer to that of Sydney. You should see the information (in the case of the example) for the next day. (Check a site like http://www.timeanddate.com/ to be sure to get a time zone which is in a different day than the one normally set on your computer.)
 
+== Other Notes ==
+
+1. A note was posted in our forum stating that sites may experience problems if changing timezones using date_default_timezone_set. WP expects it to always be UTC and display of things in different timezones are achieved in other ways:
+* <https://vip.wordpress.com/documentation/vip-development-tips-tricks/use-current_time-not-date_default_timezone_set/>
+* <[https://weston.ruter.net/2013/04/02/do-not-change-the-default-timezone-from-utc-in-wordpress/>
+
+1. To do: Develop, if possible, a way to effect the use of methods, other than using the date_default_timezone_set() function, to produce the same functionality the plugin currently has.
+
 == Screenshots ==
 
 1. Settings page.
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+Added advice to check that no dated-related operations were adversely impacted by this plugin.
 
 = 1.1.3 =
 Changed cookie path to be site-wide.
@@ -64,6 +75,9 @@ Method for obtaining client time zone changed from attempting to retrieve time z
 Original release.
 
 == Changelog ==
+
+= 1.1.4 =
+Added advice to check that no dated-related operations were adversely impacted by this plugin.
 
 = 1.1.3 =
 Changed cookie path to be site-wide.
