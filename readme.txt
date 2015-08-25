@@ -46,7 +46,7 @@ You can test this by changing the time on your computer to be in a time zone whi
 
 1. A note was posted in our forum stating that sites may experience problems if changing timezones using date_default_timezone_set. WP expects it to always be UTC and display of things in different timezones are achieved in other ways:
 * <https://vip.wordpress.com/documentation/vip-development-tips-tricks/use-current_time-not-date_default_timezone_set/>
-* <[https://weston.ruter.net/2013/04/02/do-not-change-the-default-timezone-from-utc-in-wordpress/>
+* <https://weston.ruter.net/2013/04/02/do-not-change-the-default-timezone-from-utc-in-wordpress/>
 
 1. To do: Develop, if possible, a way to effect the use of methods, other than using the date_default_timezone_set() function, to produce the same functionality the plugin currently has.
 
